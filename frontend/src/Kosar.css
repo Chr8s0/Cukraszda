@@ -1,0 +1,144 @@
+.kosar-container {
+  padding: 40px;
+  font-family: inherit;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.kosar-title {
+  font-size: 34px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  justify-self: center;
+}
+
+/* lista */
+.kosar-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* egy item = “card” */
+.kosar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.kosar-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* terméknév */
+.item-name {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* mennyiség kontroll */
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: rgba(0, 0, 0, 0.2);
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.item-controls button {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  font-size: 16px;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+
+  transition: 0.2s;
+}
+
+.item-controls button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ár */
+.item-price {
+  min-width: 120px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* törlés gomb */
+.delete {
+  margin-left: 15px;
+
+  background: transparent;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  transition: 0.2s;
+}
+
+.delete:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+/* összeg */
+.kosar-total {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: 700;
+  justify-self: center;
+
+  text-align: right;
+
+  padding: 15px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* üres kosár */
+.empty {
+  font-size: 18px;
+  opacity: 0.7;
+  text-align: center;
+  padding: 40px;
+}
+
+.item-img {
+  width: 100px;
+  height: 200px;
+  margin-right: 10%;
+  flex-shrink: 0;
+}
+
+.item-img img {
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}

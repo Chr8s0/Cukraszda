@@ -1,0 +1,16 @@
+function Gomb(){
+
+    const styles = {
+        backgroundColor: "hsl(200, 100%, 50%)",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        border: "none",
+        cursor: "pointer"
+    }
+
+    return(
+        <button style={styles}>Kattints rám</button>
+    )
+}
+
+export default Gomb
