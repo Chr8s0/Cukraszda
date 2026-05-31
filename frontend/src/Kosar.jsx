@@ -1,91 +1,107 @@
 import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
-import { useState } from "react";
 import "./Kosar.css";
-const placeholder = "https://placehold.co/200x150";
 
-function Kosar() {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "Csokitorta",
-      price: 4500,
-      qty: 1,
-      img: placeholder,
-    },
-    {
-      id: 2,
-      name: "Epertorta",
-      price: 5200,
-      qty: 2,
-      img: placeholder,
-    },
-  ]);
-
+function Kosar({ items, setItems }) {
+  // ➕ mennyiség növelés
   function increase(id) {
     setItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item,
-      ),
+      prev.map((i) =>
+        i.id === id ? { ...i, qty: (i.qty || 1) + 1 } : i
+      )
     );
   }
 
+  // ➖ mennyiség csökkentés
   function decrease(id) {
     setItems((prev) =>
       prev
-        .map((item) =>
-          item.id === id && item.qty > 1
-            ? { ...item, qty: item.qty - 1 }
-            : item,
+        .map((i) =>
+          i.id === id
+            ? { ...i, qty: (i.qty || 1) - 1 }
+            : i
         )
-        .filter((item) => item.qty > 0),
+        .filter((i) => (i.qty || 1) > 0)
     );
   }
 
+  // ❌ törlés
   function remove(id) {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    setItems((prev) => prev.filter((i) => i.id !== id));
   }
 
-  const total = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+  // ✍️ megjegyzés
+  function updateNote(id, value) {
+    setItems((prev) =>
+      prev.map((i) =>
+        i.id === id ? { ...i, note: value } : i
+      )
+    );
+  }
+
+  const total = items.reduce(
+    (sum, i) => sum + i.price * (i.qty || 1),
+    0
+  );
+
+  function sendCart() {
+    if (!items || items.length === 0) {
+      alert("A kosár üres!");
+      return;
+    }
+
+    const message = items
+      .map(
+        (i) =>
+          `${i.name} x${i.qty || 1} = ${
+            i.price * (i.qty || 1)
+          } Ft\nMegjegyzés: ${i.note || "-"}`
+      )
+      .join("\n\n");
+
+    alert("🍰 Rendelés elküldve:\n\n" + message);
+
+    setItems([]);
+  }
 
   return (
     <>
       <Header />
 
       <div className="kosar-container">
-        <h1 className="kosar-title">Kosár</h1>
+        <h1>Kosár</h1>
 
-        {items.length === 0 ? (
-          <p className="empty">A kosár üres</p>
+        {(!items || items.length === 0) ? (
+          <p>A kosár üres</p>
         ) : (
           <>
-            <div className="kosar-lista">
-              {items.map((item) => (
-                <div className="kosar-item" key={item.id}>
-                  <div className="item-img">
-                    <img src={item.img} alt={item.name} />
-                  </div>
+            {items.map((item) => (
+              <div key={item.id} className="kosar-item">
+                <p>{item.name}</p>
 
-                  <div className="item-name">{item.name}</div>
+                <button onClick={() => decrease(item.id)}>-</button>
+                <span>{item.qty || 1}</span>
+                <button onClick={() => increase(item.id)}>+</button>
 
-                  <div className="item-controls">
-                    <button onClick={() => decrease(item.id)}>-</button>
-                    <span>{item.qty}</span>
-                    <button onClick={() => increase(item.id)}>+</button>
-                  </div>
+                <textarea
+                  placeholder="Megjegyzés..."
+                  value={item.note || ""}
+                  onChange={(e) =>
+                    updateNote(item.id, e.target.value)
+                  }
+                />
 
-                  <div className="item-price">{item.price * item.qty} Ft</div>
+                <button onClick={() => remove(item.id)}>
+                  törlés
+                </button>
+              </div>
+            ))}
 
-                  <button className="delete" onClick={() => remove(item.id)}>
-                    törlés
-                  </button>
-                </div>
-              ))}
-            </div>
+            <h2>Összesen: {total} Ft</h2>
 
-            <div className="kosar-total">
-              Összesen: <b>{total} Ft</b>
-            </div>
+            <button onClick={sendCart}>
+              Küldés
+            </button>
           </>
         )}
       </div>

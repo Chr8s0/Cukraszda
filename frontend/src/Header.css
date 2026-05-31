@@ -1,0 +1,93 @@
+:root {
+  --cream: #ffcdb2d7;
+  --peach: #ffb5a2d3;
+  --pink-light: #e5989be0;
+  --pink: #b5828ce7;
+}
+
+.avatar-container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 70px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: var(--cream);
+  border: 2px solid var(--pink-light);
+  border-radius: 16px;
+
+  padding: 12px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+  animation: fadeIn 0.2s ease;
+
+  z-index: 1000;
+}
+
+.dropdown-menu button {
+  background: linear-gradient(
+    135deg,
+    var(--peach),
+    var(--pink-light)
+  );
+
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 10px 24px;
+
+  font-family: "Marck Script", cursive;
+  font-size:x-large;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu button:hover {
+  transform: translateY(-2px) scale(1.05);
+
+  background: linear-gradient(
+    135deg,
+    var(--pink-light),
+    var(--pink)
+  );
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu button:active {
+  transform: scale(0.97);
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

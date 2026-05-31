@@ -251,3 +251,8 @@ footer a img.social-link:hover {
     opacity: 1;
   }
 }
+
+
+html{
+  scroll-behavior: smooth;
+}
