@@ -7,11 +7,15 @@ import Kartya from "./Kartya.jsx";
 import UjTorta from "./UjTorta.jsx";
 import Kosar from "./Kosar.jsx";
 import "./App.css";
+import csoki from './img/csoki.jpeg'
+import eper from './img/eper.jpeg'
+import vanilia from './img/vanilia.jpeg'
+
 
 const products = [
-  { id: 1, name: "Csokitorta", price: 4500, img: "https://placehold.co/200x150" },
-  { id: 2, name: "Epertorta", price: 5200, img: "https://placehold.co/200x150" },
-  { id: 3, name: "Vaníliatorta", price: 4800, img: "https://placehold.co/200x150" },
+  { id: 1, name: "Csokitorta", price: 4500, img: csoki },
+  { id: 2, name: "Epertorta", price: 5200, img: eper },
+  { id: 3, name: "Vaníliatorta", price: 4800, img: vanilia },
 ];
 
 function Fooldal({ addToCart }) {

@@ -1,106 +1,143 @@
 .kosar-container {
-  padding: 40px;
-  font-family: inherit;
-  max-width: 900px;
+  padding: 60px 25px;
+  max-width: 1100px;
   margin: 0 auto;
+  font-size: 22px;
 }
 
+/* cím */
 .kosar-title {
-  font-size:xx-large;
-  margin-bottom: 25px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  justify-self: center;
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 35px;
+  text-align: center;
 }
 
 /* lista */
 .kosar-lista {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
 }
 
-/* egy item = “card” */
+/* 🧁 ITEM KÁRTYA (NAGYÍTOTT) */
 .kosar-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 18px 20px;
-  border-radius: 14px;
+  padding: 28px;
+  border-radius: 22px;
 
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: 0.2s;
 }
 
 .kosar-item:hover {
-  transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
 }
 
-/* terméknév */
+/* bal oldal */
+.item-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* kép nagyobb */
+.item-img img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* név nagyobb */
 .item-name {
-  font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
-/* mennyiség kontroll */
+/* megjegyzés mező nagyobb */
+.item-note {
+  margin-top: 10px;
+  width: 300px;
+  height: 80px;
+
+  resize: none;
+
+  border-radius: 12px;
+  padding: 10px;
+
+  border: none;
+  outline: none;
+
+  background: rgba(0,0,0,0.25);
+  color: white;
+
+  font-size: 16px;
+}
+
+/* jobb oldal */
+.item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* qty control nagyobb */
 .item-controls {
   display: flex;
   align-items: center;
   gap: 12px;
 
-  background: rgba(0, 0, 0, 0.2);
-  padding: 6px 10px;
-  border-radius: 10px;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 14px;
+  border-radius: 12px;
 }
 
 .item-controls button {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
 
   border: none;
-  border-radius: 6px;
-
   cursor: pointer;
-  font-size: 16px;
 
-  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.2);
   color: white;
 
-  transition: 0.2s;
+  font-size: 18px;
 }
 
-.item-controls button:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* ár */
-.item-price {
-  min-width: 120px;
-  text-align: right;
+.item-controls span {
+  font-size: 18px;
   font-weight: 600;
+}
+
+/* ár nagyobb */
+.item-price {
+  font-size: 20px;
+  font-weight: 800;
 }
 
 /* törlés gomb */
 .delete {
-  margin-left: 15px;
-
-  background: transparent;
   border: 1px solid #ff4d4d;
+  background: transparent;
   color: #ff4d4d;
 
-  cursor: pointer;
-  padding: 6px 12px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
 
-  transition: 0.2s;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .delete:hover {
@@ -108,37 +145,42 @@
   color: white;
 }
 
-/* összeg */
-.kosar-total {
-  margin-top: 30px;
-  font-size:xx-large;
-  font-weight: 700;
-  justify-self: center;
-
-  text-align: right;
-
-  padding: 15px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* üres kosár */
-.empty {
-  font-size: 18px;
-  opacity: 0.7;
+/* footer */
+.kosar-footer {
+  margin-top: 40px;
   text-align: center;
-  padding: 40px;
 }
 
-.item-img {
-  width: 100px;
-  height: 200px;
-  margin-right: 10%;
-  flex-shrink: 0;
+/* összeg nagyobb */
+.kosar-total {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
 }
 
-.item-img img {
-  width: 200%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+/* küldés gomb */
+.send-btn {
+  padding: 14px 26px;
+  border: none;
+  border-radius: 14px;
+
+  background: #d67486;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.send-btn:hover {
+  transform: scale(1.08);
+}
+
+.empty {
+  text-align: center;
+  font-size: 22px;
+  opacity: 0.8;
+  padding: 60px;
 }

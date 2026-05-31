@@ -1,8 +1,11 @@
 import "./Gomb.css";
+import { useNavigate } from "react-router-dom";
 
 const placeholder = "https://placehold.co/200x150";
 
 function Kartya({ addToCart, id, name, price, img }) {
+  const navigate = useNavigate();
+
   return (
     <div className="kartya">
       <img className="kartya-kep" src={img || placeholder} alt={name} />
@@ -12,7 +15,7 @@ function Kartya({ addToCart, id, name, price, img }) {
 
       <button
         className="gomb_style"
-        onClick={() =>
+        onClick={() => {
           addToCart({
             id,
             name,
@@ -20,8 +23,9 @@ function Kartya({ addToCart, id, name, price, img }) {
             qty: 1,
             img: img || placeholder,
             note: "",
-          })
-        }
+          });
+          navigate("/kosar");
+        }}
       >
         Kosárba
       </button>
