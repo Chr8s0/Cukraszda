@@ -32,7 +32,7 @@
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 
   transition: 0.2s;
 }
@@ -76,7 +76,7 @@
   border: none;
   outline: none;
 
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   color: white;
 
   font-size: 16px;
@@ -96,7 +96,7 @@
   align-items: center;
   gap: 12px;
 
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   padding: 10px 14px;
   border-radius: 12px;
 }
@@ -110,7 +110,7 @@
 
   border-radius: 8px;
 
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
 
   font-size: 18px;
@@ -183,4 +183,111 @@
   font-size: 22px;
   opacity: 0.8;
   padding: 60px;
+}
+
+/* =====================
+   Reszponzív (telefon) - NE változtass elhelyezkedésen
+   ===================== */
+
+/* 12 oszlopos rács-szerű arányokkal finomhangolás (nem kényszerítünk column-ra) */
+@media (max-width: 720px) {
+  .kosar-container {
+    padding: 28px 12px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  /* ne csússzon össze: a lista legyen szélesen, a kártyák teljes sorban maradjanak */
+  .kosar-lista {
+    gap: 18px;
+  }
+
+  .kosar-item {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .kosar-title {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .kosar-item {
+    padding: 18px 14px;
+    border-radius: 18px;
+    gap: 10px;
+  }
+
+  /* 12-columns grid jelleg (flex helyett): bal 8 oszlop, jobb 4 oszlop */
+  .kosar-item {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 10px;
+    align-items: center;
+  }
+
+  .item-left {
+    grid-column: 1 / span 8;
+    min-width: 0;
+  }
+
+  .item-right {
+    grid-column: 9 / span 4;
+    align-items: flex-end;
+  }
+
+  .item-img img {
+    width: 78px;
+    height: 78px;
+    border-radius: 12px;
+  }
+
+  .item-name {
+    font-size: 17px;
+  }
+
+  .item-note {
+    width: 100%;
+    max-width: 260px;
+    height: 64px;
+    font-size: 14px;
+    margin-top: 6px;
+    resize: none;
+    color: white;
+    opacity: 1;
+  }
+
+  .item-controls {
+    padding: 8px 10px;
+    gap: 10px;
+    color: white;
+    opacity: 1;
+  }
+
+  .item-controls button {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .item-price {
+    font-size: 18px;
+  }
+
+  .delete {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .kosar-total {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .send-btn {
+    width: 100%;
+    max-width: 380px;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
 }

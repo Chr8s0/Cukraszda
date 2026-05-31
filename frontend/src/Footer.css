@@ -1,3 +1,31 @@
 *{
     margin: 0;
 }
+
+.social-link{
+    max-width: 10%;
+}
+
+.social-div{
+    color: white;
+}
+
+footer{
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+
+
+footer a:hover{
+    text-decoration: none;
+}
+
+footer a:visited{
+    color: white;
+}
+

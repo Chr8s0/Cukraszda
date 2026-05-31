@@ -5,89 +5,166 @@
   --pink: #b5828ce7;
 }
 
-.avatar-container {
-  position: relative;
+/* =========================
+   HEADER GRID
+========================= */
 
+header {
+  width: 100vw;
+  box-sizing: border-box;
+
+
+  background-color: var(--pink);
+  color: white;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  padding: 15px 25px;
+}
+
+/* bal oldal */
+.header-left {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+/* közép (nav) */
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* nav */
+.nav-list {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  text-decoration: none;
+}
+
+.nav-list li:hover {
+  text-decoration: none;
+}
+
+
+/* jobb oldal (avatar) */
+.avatar-container {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.logo {
+  width: 45%;
+  border-radius: 50%;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
 .dropdown-menu {
   position: absolute;
-
-  top: 70px;
+  top: 60px;
   left: 50%;
-
   transform: translateX(-50%);
 
   background: var(--cream);
-  border: 2px solid var(--pink-light);
-  border-radius: 16px;
+  border-radius: 14px;
 
-  padding: 12px;
+  padding: 10px;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-
-  animation: fadeIn 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 
   z-index: 1000;
 }
 
 .dropdown-menu button {
-  background: linear-gradient(
-    135deg,
-    var(--peach),
-    var(--pink-light)
-  );
-
-  color: white;
-
   border: none;
-  border-radius: 12px;
+  padding: 10px 20px;
+  border-radius: 10px;
 
-  padding: 10px 24px;
-
-  font-family: "Marck Script", cursive;
-  font-size:x-large;
+  background: var(--peach);
+  color: white;
 
   cursor: pointer;
-
-  transition: all 0.25s ease;
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.dropdown-menu button:hover {
-  transform: translateY(-2px) scale(1.05);
+/* =========================
+   HEADER hovers (vissza)
+========================= */
 
-  background: linear-gradient(
-    135deg,
-    var(--pink-light),
-    var(--pink)
-  );
-
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+header {
+  transition: padding 0.4s ease, box-shadow 0.4s ease;
 }
 
-.dropdown-menu button:active {
-  transform: scale(0.97);
+header:hover {
+  padding: 22px 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-a{
-  color: white;
-  text-decoration: none;
+.logo {
+  transition: transform 0.4s ease, filter 0.1s ease;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+  cursor: pointer;
 }
 
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-8px);
+/* =========================
+   RESPONSIVE HEADER
+========================= */
+
+@media (max-width: 768px) {
+  header {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+  .header-right {
+    justify-content: center;
+    color: white;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .avatar-container {
+    justify-content: center;
   }
 }
